@@ -23,7 +23,14 @@ bot.train(convMusic)
 
 #laço de perguntas
 while True:
+    
     quest = input('You: ')
     response = bot.get_response(quest)
     
-    print ('Bot: ' ,response)
+    #função confidence, acima de 0.5 entra no if
+    if float (response.confidence > 0.5):
+        print ('Bot: ' ,response)
+    
+    # igual ou menor que 0.5 entra no else
+    else:
+        print('Bot: Não compreendi')
